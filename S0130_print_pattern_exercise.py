@@ -41,37 +41,29 @@ Then send this Teams message to your teacher: <filename> done
 Thereafter go on with the next file.
 """
 
+
 #  Write your functions below this line.
 
-#First part of assingment
+# First part of assingment
 def print_repeatedly(string, repetetions):
-    x=0
-    while(x < repetetions):
-        print(string, end = '')
+    x = 0
+    while x < repetetions:
+        print(string, end='')
         x += 1
 
 
 # First test
-#print_repeatedly("Test", 3)
+# print_repeatedly("Test", 3)
 
-#Second part of assingment
-def print_pattern(string, repetetion_list = [], end= ''):
-    i=0
+# Second part of assingment
+def print_pattern(string, repetetion_list=[]):
     for item in repetetion_list:
-        print_repeatedly(string,repetetion_list[i])
-        i+=1
-        print("", end)
+        print_repeatedly(string, item)
+        # i += 1
+        print("")
 
 
-
-
-
-
-
-
-
-#Here starts the main program. From the main program you can call your functions.
+# Here starts the main program. From the main program you can call your functions.
 
 # second test
-print_pattern("abc", [4,2,1])
-
+print_pattern("abc", [4, 2, 1])
