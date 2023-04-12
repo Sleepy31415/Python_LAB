@@ -66,14 +66,20 @@ class Character:
         massive_hit = 100
         self._current_health -= massive_hit
 
+    def health_check(self):
+        if self._current_health > 0:
+            print(f"{self.name} is alive and well. They still have a fighting spirit and {self._current_health} left!")
+        else:
+            print(f"{self.name} has fallen.")
+            return self._current_health
+
+
     def fight(self, other):
         while self.health_check() > 0 and other.health_check() > 0:
             self.battle_plan(other)
             other.health_check()
             other.battle_plan(self)
             self.health_check()
-
-
 
 
 class Healer(Character):
@@ -123,11 +129,6 @@ class Human(Character):
             Character.hit(self, other)
 
 
-    def health_check(self):
-        if self._current_health > 0:
-            print(f"{self.name} is alive and well. They still have a fighting spirit and {self._current_health} left!")
-        else:
-            print(f"{self.name} has fallen.")
 
 class Druid(Character):
     def __init__(self, name, health, attackpower, massive_hit):
@@ -151,11 +152,7 @@ class Druid(Character):
         else:
             print(f"{self.name} missed {other.name}")
 
-    def health_check(self):
-        if self._current_health > 0:
-            print(f"{self.name} is alive and well. They still have a fighting spirit and {self._current_health} left!")
-        else:
-            print(f"{self.name} has fallen.")
+
 
 
 hero1 = Character("Bozeto", 100, 20, 100)
@@ -167,7 +164,7 @@ druid1 = Druid("Shakana", 100, 20, 300)
 
 # fighting x100 needs to work
 
-Character.fight(human1,druid1)
+Character.fight(human1, druid1)
 
 # print(hero1)
 # print(hero2)
@@ -178,4 +175,5 @@ Character.fight(human1,druid1)
 # print(hero2)
 # hero2.get_hit(hero1)
 # print(hero1)
+
 
