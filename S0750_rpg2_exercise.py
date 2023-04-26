@@ -71,7 +71,7 @@ class Character:
             print(f"{self.name} is alive and well. They still have a fighting spirit and {self._current_health} left!")
         else:
             print(f"{self.name} has fallen.")
-            return self._current_health
+        return self._current_health
 
 
     def fight(self, other):
